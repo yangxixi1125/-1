@@ -3,7 +3,7 @@
 
 #define K 10
 //排序的数组
-int a[10] = { 10,15,958,-52,63,-1000,2,0,10,45 };
+int a[K] = { 10,15,958,-52,63,-1000,2,0,10,45 };
 
 //两个有序数组排序,这两个数组都存储在数组a中a(i,I)  a(j,J)排序好的数组存储在a中
 void XLpaixu(int a[], int p, int I, int q, int J)
@@ -14,7 +14,7 @@ void XLpaixu(int a[], int p, int I, int q, int J)
 	//两个数组都有数
 	while((i <= I) && (j <= J))
 	{
-		if (a[i] < a[j])
+		if (a[i] > a[j])
 			temp[k++] = a[i++];
 		else
 			temp[k++] = a[j++];
@@ -25,11 +25,11 @@ void XLpaixu(int a[], int p, int I, int q, int J)
 			temp[k++] = a[j++];
 	else
 		if(j > J)
-			for (; i <= J;)
+			for (; i <= I;)
 				temp[k++] = a[i++];
 	//排列完毕
 	//temp的值写入a
-	for (h = 0, i = p; h <= k;)
+	for (h = 0, i = p; h < k;)
 		a[i++] = temp[h++];
 	return;
 }
@@ -50,15 +50,15 @@ void GBpaixu(int a[] , int i , int j)
 
 void main()
 {
-	int i, j, k;
-	printf("/n");
+	int i, j;
+	printf("\n");
 	for (i = 0; i < K; i++)
-		printf("&d/t", a[i]);
-	printf("/n");
+		printf("%d\t", a[i]);
+	printf("\n");
 	GBpaixu(a, i = 0, j = K - 1);
 	for (i = 0; i < K; i++)
-		printf("&d/t", a[i]);
-	printf("/n");
+		printf("%d\t", a[i]);
+	printf("\n");
 	system("pause");
 	return;
 }
